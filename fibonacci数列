@@ -1,0 +1,7 @@
+x=int(input('the number is:\n')) 
+fib=[0,1]
+for i in range(2, x):
+    fib.append(fib[-2]+fib[-1])
+
+print (fib[x-1]) #输出第X项fibonacci数列
+print（fib）#输出前X项fibonacci数列
