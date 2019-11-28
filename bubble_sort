@@ -1,0 +1,11 @@
+
+def bubble_sort(nums):
+    for i in range(len(nums)-1): #控制循环次数
+        for j in range (len (nums)-i-1):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
+    return nums
+
+
+
+print (bubble_sort ([5,83,9,25,4,263,1,765,6]))
