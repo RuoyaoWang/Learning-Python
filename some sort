@@ -1,0 +1,33 @@
+#冒泡
+def bubble_sort(nums):
+    n=len(nums)-1
+    for i in range(n):    #控制循环次数
+        for j in range (1,n-i):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
+    return nums
+
+print (bubble_sort ([5,83,9,25,4,263,1,765,6]))
+
+#优化版冒泡
+def bubble_sort(nums):
+    for i in range(len(nums)-1):    #控制循环次数
+        flag=ture   #标记
+        for j in range (len (nums)-i-1):
+            if nums[j] > nums[j + 1]:
+                nums[j], nums[j + 1] = nums[j + 1], nums[j]
+                flag=false
+        if flag:
+            break   #若某循环中没有数据交换，说明已完成排序，不必再迭代
+    return nums
+
+#选择
+def select_sort(nums):
+    n=len(nums)-1
+    for i in range(0,n):
+        min=i   #最小元素下标标记
+        for j in range (i+1,n)：
+            if nums(j)<nums(min):
+                min=j
+        nums(i),nums(min)=nums(min),nums(i)
+    return nums
