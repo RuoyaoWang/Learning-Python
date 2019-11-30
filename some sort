@@ -6,7 +6,6 @@ def bubble_sort(nums):
             if nums[j] > nums[j + 1]:
                 nums[j], nums[j + 1] = nums[j + 1], nums[j]
     return nums
-
 print (bubble_sort ([5,83,9,25,4,263,1,765,6]))
 
 #优化版冒泡
@@ -30,4 +29,15 @@ def select_sort(nums):
             if nums(j)<nums(min):
                 min=j
         nums(i),nums(min)=nums(min),nums(i)
+    return nums
+
+#插入
+def insert_sort(nums):
+    for i in (1,len(nums)):
+        mark=nums[i]    #由于num[i]可能会被覆盖，因此必须用mark来存储它的值
+        k=i-1
+        while k>=0 and nums[k]>mark:
+            nums[k+1]=nums[k]
+            k-=1
+        nums[k+1]=mark
     return nums
