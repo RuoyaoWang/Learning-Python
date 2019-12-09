@@ -1,0 +1,11 @@
+1、安装Django
+  （1）下载python。在python中输入
+      import sys
+      sys.executable
+      从而获得python的安装位置。打开系统属性-环境变量，在path中添加python的位置与Scripts。打开cmd，输入python，可获得交互环境
+  （2）使用python的pip指令安装Django。打开cmd，输入pip --version查看pip的信息，确认已经安装pip。
+      之后输入pip install Django，程序会下载安装Django。打开python，输入
+      import django
+      django.get_version()
+      可以查看到下载好的Django的版本，确认Django环境已经搭建好。
+2、创建Django的第一个项目——hello，world
