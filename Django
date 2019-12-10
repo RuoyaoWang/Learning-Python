@@ -3,9 +3,17 @@
       import sys
       sys.executable
       从而获得python的安装位置。打开系统属性-环境变量，在path中添加python的位置与Scripts。打开cmd，输入python，可获得交互环境
-  （2）使用python的pip指令安装Django。打开cmd，输入pip --version查看pip的信息，确认已经安装pip。
+  （2）搭建虚拟环境。打开cmd，创建一个目录，输入mkdir for-django
+      进入oa目录，需要输入cd for-django。可以看见左边的路径发生了变化
+      创建虚拟环境》输入py -3 -m venv venv
+      激活虚拟环境，输入.\venv\Scripts\activate
+      退出虚拟环境，输入deactivate
+  （3）使用python的pip指令安装Django。打开cmd，输入pip --version查看pip的信息，确认已经安装pip。
       之后输入pip install Django，程序会下载安装Django。打开python，输入
       import django
       django.get_version()
       可以查看到下载好的Django的版本，确认Django环境已经搭建好。
-2、创建Django的第一个项目——hello，world
+2、创建Django的第一个项目——oa
+  （1）输入django-admin startproject oa。创立一个文件
+  （2）键入cd oa，进入该目录。输入python manage.py runserver，启动服务器运行项目
+  （3）打开浏览器，输入<http://127.0.0.1:8000>来访问服务器
