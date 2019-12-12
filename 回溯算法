@@ -1,0 +1,49 @@
+回溯算法的基本思想是：从一条路往前走，能进则进，不能进则退回来，换一条路再试。
+其中经典的算法有八皇后问题，骑士巡逻等
+
+骑士巡逻是一个数学问题：将一个国际象棋的骑士（或称马）放在棋盘上，有什么路径能使它走遍棋盘上每一格呢？
+
+import sys
+import time
+
+# 定义棋盘大小
+SIZE = 5
+# 定义一个全局变量，用于记录第total种巡游方式。
+total = 0
+
+def print_board(board):
+    for row in board:
+        for col in row:
+            print(str(col).center(4), end='')
+        print()
+
+def patrol(board, row, col, step=1):
+    if row >= 0 and row < SIZE and \
+        col >= 0 and col < SIZE and \
+        board[row][col] == 0:
+        board[row][col] = step
+        # 当最后一步恰好等于 25（本案例5*5）时，打印输出巡游路线
+        if step == SIZE * SIZE:
+            global total
+            total += 1
+            print(f'第{total}种走法: ')
+            print_board(board)
+        # 下一步可能会走的位置
+        patrol(board, row - 2, col - 1, step + 1)
+        patrol(board, row - 1, col - 2, step + 1)
+        patrol(board, row + 1, col - 2, step + 1)
+        patrol(board, row + 2, col - 1, step + 1)
+        patrol(board, row + 2, col + 1, step + 1)
+        patrol(board, row + 1, col + 2, step + 1)
+        patrol(board, row - 1, col + 2, step + 1)
+        patrol(board, row - 2, col + 1, step + 1)
+        board[row][col] = 0
+
+def main():
+	# 生成5*5的棋盘
+    board = [[0] * SIZE for _ in range(SIZE)]
+    #设定巡游起点为索引（4,4）
+    patrol(board, SIZE - 1, SIZE - 1)
+
+if __name__ == '__main__':
+    main()
