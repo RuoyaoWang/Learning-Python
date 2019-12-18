@@ -1,0 +1,38 @@
+牛客网
+华为机试在线训练——查找兄弟单词
+兄弟单词就是组成两个单词的字母及字母个数是相同的，但是排序不同。例如abcdd和acdbd就是兄弟单词
+
+输入描述:
+先输入字典中单词的个数n，再输入n个单词作为字典单词。
+再输入一个单词，查找其在字典中兄弟单词的个数m
+再输入数字k
+
+输出描述:
+根据输入，输出查找到的兄弟单词的个数m
+然后输出查找到的兄弟单词的第k个单词。
+
+from collections import defaultdict
+
+while True:
+    try:
+        dd=defaultdict(list)        #dd是列表
+        str1=input().split()
+        n=int(str1[0])
+        k=int(str1[-1])
+        lookup=str1[-2]
+        words=str1[1:1+n]
+        rec=[]
+        for i in words:
+            dd[''.join(sorted(i))].append(i)
+#首先对i中的字母进行排序，有序的新单词作为一个key，i作为value存到这个key下面
+
+        for i in dd[''.join(sorted(lookup))]:
+#对lookup的字母排序，看这个key有没有对应的value；若有，将各value值比对lookup，判断兄弟单词
+
+            if i != lookup:
+                rec.append(i)
+        print(len(rec))
+        if rec and k<=len(rec):
+            print(sorted(rec)[k-1])
+    except:
+        break
